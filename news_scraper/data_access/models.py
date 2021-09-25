@@ -24,11 +24,11 @@ class Article(Base):
                     & (self.text == other.text))
         return false
 
-class ArticleUpdatetimes(Base):
-    __tablename__ = 'news_article_updatetimes'
+class ArticleOccurenceLog(Base):
+    __tablename__ = 'article_occurence_log'
 
     id = Column(Integer, primary_key=True)
     article_id = Column(ForeignKey('article.id'))
-    update_datetime = Column(DateTime(), server_default=func.now())
+    datetime = Column(DateTime(), server_default=func.now())
 
 
