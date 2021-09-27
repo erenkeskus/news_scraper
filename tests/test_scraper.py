@@ -43,5 +43,14 @@ class TestScraper(unittest.TestCase):
             asserted = 4
             self.assertEqual(tested, asserted)
 
+    def test_last_article_title_is_correctly_the_last_title(self): 
+        with open(TestScraper.file_path, 'r') as f: 
+            tested = parse_articles(f)[3]['title']
+
+        asserted = ('The Changing Virus')
+
+        self.assertEqual(tested, asserted)
+
+
 suite = unittest.TestLoader().loadTestsFromTestCase(TestScraper)
 unittest.TextTestRunner(verbosity=2).run(suite)
