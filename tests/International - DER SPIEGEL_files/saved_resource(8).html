@@ -1,0 +1,124 @@
+
+<!-- saved from url=(0037)https://www.spiegel.de/international/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>var inDapIF = true;</script><script>var iFrameId = 'guj_ems_iframe_1632687646895_/6032,22337032985/spon_dt/international';</script><script>var GujAd = top.GujAd;</script><script>var EmsAd = EmsAd || {}; var GujAd = GujAd || {}; var EmsGuj = EmsGuj || {}; try { EmsAd = parent.EmsAd || top.EmsAd; GujAd = parent.GujAd || top.GujAd; EmsGuj = parent.EmsGuj || top.EmsGuj;} catch(e) {}; document.write('<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"></body>');</script></head><body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<script type="text/javascript">
+
+var containerId = 'dm-conative-container-cp';
+
+parent.window['conative_iframe_id'] = window.frameElement.id+"";
+
+
+function conativePassback() {
+    function injectGpt() {
+        console.info('DM PB ::: playing spon pb-desktop -> injectGpt');
+        if(typeof window['googletag'] == 'undefined') {
+            var gptScrSrc = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
+            var gptScrId = 'dm-conative-passback-gpt-script-'+new Date().getTime();
+
+            var gptScr = document.createElement('script');
+            gptScr.setAttribute('type', 'text/javascript');
+            gptScr.setAttribute('id', gptScrId);
+
+            document.body.appendChild(gptScr);
+
+            gptScr = document.querySelector('#'+gptScrId);
+            if(gptScr) {
+                gptScr.setAttribute('src', gptScrSrc);
+            }
+        }
+    }
+
+    function injectPassback() {
+        try{window.top.document.getElementById('bb20AnzeigeADV').style.display="none";}catch(e){}
+        console.info('DM PB ::: playing spon pb-desktop -> injectPassback');
+        if(typeof window['googletag'] != 'undefined') {
+            console.info('DM PB ::: injectPassback -> googletag present');
+
+            console.info('DM PB ::: injectPassback -> inserting gpt-passback div...');
+            if(!document.querySelector('#gpt-passback')) {
+                var gptPassbackDiv = document.createElement('div');
+                gptPassbackDiv.setAttribute('id', 'gpt-passback');
+                document.body.appendChild(gptPassbackDiv);
+                console.info('DM PB ::: injectPassback -> gpt-passback inserted!');
+            } else {
+                console.info('DM PB ::: injectPassback -> gpt-passback NOT inserted as it was already there!');
+            }
+
+            console.info('DM PB ::: injectPassback -> firing googletag logics...');
+      try{
+            window.frameElement.style.width="728px";
+            window.frameElement.style.height="90px";
+                                        window.frameElement.style.display="block";
+
+                        window.frameElement.parentNode.style.display="block";
+
+            }catch(e){}
+            window['googletag'] = window['googletag'] || {'cmd': []};
+            window['googletag']['cmd'].push(function() {
+                window['googletag']
+                    .defineSlot('/6032/spon_dt/international', [728, 90], 'gpt-passback')
+                    .addService(window['googletag'].pubads());
+                window['googletag'].pubads().setTargeting("pos", "3");
+                window['googletag'].pubads().setTargeting("adPositionName", "superbanner_3");
+                window['googletag'].pubads().setTargeting("spmtp", "centerpage");
+                window['googletag'].pubads().setTargeting("kw", "definemedia");
+                window['googletag'].enableServices();
+                window['googletag'].display('gpt-passback');
+            });
+            console.info('DM PB ::: injectPassback -> googletag logics fired!');
+        } else {
+            console.info('DM PB ::: injectPassback -> googletag not yet present -> rescheduling');
+            window['setTimeout'](injectPassback, 500);
+        }
+    }
+
+    injectGpt();
+    injectPassback();
+}
+
+function isDomReady() {
+	return window.document.readyState == 'complete' || window.document.readyState == 'loaded' || window.document.readyState == 'interactive';
+}
+
+function executeConative(){
+var newElem = window.document.createElement('div');
+newElem.id = containerId;
+var parentElem = window.frameElement.parentNode.parentNode;
+parentElem.appendChild(newElem);
+
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//cdn.conative.de/serve/domain/158/config.js';
+script.setAttribute('async', '');
+parent.document.body.appendChild(script);
+};
+
+if(isDomReady()) {
+	console.log('DOM is ready -> executeConative()');
+	executeConative();
+} else {
+	console.log('conative waiting for DOM to be ready...');
+	window.addEventListener('DOMContentLoaded', function() { 
+		console.log('DOM is ready -> executeConative()');
+		executeConative();
+	});
+}
+</script>
+<!-- Line Item SPON Desktop END (todo SPON) -->
+
+
+
+
+<script> 
+
+       try{
+    
+        parent.document.getElementById(window.frameElement.id).style.display = 'none';
+        }catch(e){}
+     try{
+    
+        window.frameElement.parentNode.style.display = 'none';
+        }catch(e){}
+        
+        console.log("test desktop nextgen");
+</script></body><!-- Line Item SPON Desktop Centerpages (todo SPON) --></html>

@@ -1,0 +1,1 @@
+var yl=yl||{};yl.YpResult=yl.YpResult||function(){var a={};return{add:function(b){a[b.id]=b},get:function(b){return a[b]},getAll:function(){return a}}}();yl.YpResult.add({'id':9859385,'price':162,'advertiser':'schuhe.de','curl':'http://schuhe.de','adsize':'300x600','adtype':'BANNER','pid':346627,'sid':'172'});

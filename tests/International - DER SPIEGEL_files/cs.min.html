@@ -1,0 +1,18 @@
+
+<!-- saved from url=(0043)https://cdn.conative.de/libs/cs/cs.min.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  </head>
+  <body>
+    <script type="text/javascript">
+    var eventMethod=window.addEventListener?"addEventListener":"attachEvent",listener=window[eventMethod],messageEvent="attachEvent"==eventMethod?"onmessage":"message",centralizedStorage={};listener(messageEvent,function(b){"undefined"!=typeof b.data.event&&decodeData(b.data)},!1);
+function decodeData(b){var a="string"==typeof b.signature?b.signature:!1;switch(b.event){case "dm-ccc-cs-get":if(b=getData(b.name))b.signature=a,parent.postMessage(b,"*");else return handleError(a,"no data in storage"),null;break;case "dm-ccc-cs-set":if("object"!=typeof b.payload)return handleError(a,"no payload provided in data"),null;var c=setData(b.name,b);c?(c.event=b.event,c.signature=a,parent.postMessage(c,"*")):handleError(a,"failed to write to storage");break;case "dm-ccc-cs-clear":return clearStorage(),
+null;default:return handleError(a,"command unknown: "+b.event),null}}function clearStorage(){document.cookie="dm-ccc-cs-privacy-protection-on=;expires=Thu, 01 Jan 1970 00:00:00 GMT";localStorageSupported()&&window.localStorage.clear()}function handleError(b,a){data={event:"dm-ccc-cs-error"};data.signature=b?b:"";data.message=a?a:"NO ERROR MESSAGE PROVIDED";parent.postMessage(data,"*")}
+function setData(b,a){var c=0;0<parseInt(a.cacheTime,10)&&(c=a.cacheTime+parseInt((new Date).getTime()/1E3,10));c={cacheTime:c,payload:a.payload};storageKeyPrefixed="dm-ccc-cs-"+b;localStorageSupported()?window.localStorage.setItem(storageKeyPrefixed,JSON.stringify(c)):centralizedStorage[storageKeyPrefixed]=JSON.stringify(c);return getData(b)}
+function getData(b){if("privacy-protection-on"!=b){var a=!1,c=null;if(localStorageSupported()){try{c=JSON.parse(window.localStorage.getItem("dm-ccc-cs-privacy-protection-on"))}catch(d){c=null}if(!c)try{c=JSON.parse(getCookie("dm-ccc-cs-privacy-protection-on"))}catch(d){c=null}}c&&"object"==typeof c.payload&&"undefined"!=typeof c.payload.optout&&("boolean"==typeof c.payload.optout?a=!0:"true"==c.payload.optout&&(a=!0));if(a)return clearStorage(),setData("privacy-protection-on",{payload:{cacheTime:0,
+optout:!0}}),null}a=null;storageKeyPrefixed="dm-ccc-cs-"+b;if(localStorageSupported())try{a=JSON.parse(window.localStorage.getItem(storageKeyPrefixed))}catch(d){a=null}if(!a){try{a=JSON.parse(getCookie(storageKeyPrefixed))}catch(d){a=null}a&&setData(b,a)}if(!a&&"undefined"!=typeof centralizedStorage[storageKeyPrefixed])try{(a=JSON.parse(centralizedStorage[storageKeyPrefixed]))&&setData(b,a)}catch(d){a=null}if(!a||"undefined"==typeof a.payload)return null;if(isExpired(a))return window.localStorage.removeItem(storageKeyPrefixed),
+null;a.name=b;a.event="dm-ccc-cs-get";return a}function getCookie(b){b+="=";for(var a=decodeURIComponent(document.cookie).split(";"),c=0;c<a.length;c++){for(var d=a[c];" "==d.charAt(0);)d=d.substring(1);if(0==d.indexOf(b))return d.substring(b.length,d.length)}return null}function isExpired(b){return"undefined"!=typeof b.cachetime?0<parseInt(b.cacheTime,10)?b.cacheTime<Math.floor(Date.now()/1E3):!1:!1}
+function localStorageSupported(){try{return"localStorage"in window&&null!==window.localStorage}catch(b){return!1}};
+    </script>
+  
+
+</body></html>
