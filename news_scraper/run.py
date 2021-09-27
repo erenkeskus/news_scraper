@@ -21,7 +21,7 @@ def run(url='https://www.spiegel.de/international/'):
 		doc = retrieve_page(url)
 		mapped_articles = parse_articles(doc)
 		
-		logger.debug('Nummber of article teasers: {}\n'.format(len(mapped_articles)))
+		logger.debug('Number of article teasers: {}\n'.format(len(mapped_articles)))
 		
 		with session_scope(db_uri) as session:
 			for article in mapped_articles: 

@@ -11,7 +11,9 @@ NAME = 'news_scraper'
 setup(
     name=NAME,
     version=0.1,
-    description='',
+    description=('This is a schedulable console app which scrapes'
+        +' the news feed of a given news source, saves the data, '
+        +'and updates it with the corresponding timestamp',)
     author='Eren Keşküş',
     author_email='eren01@gmail.com',
 
