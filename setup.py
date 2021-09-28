@@ -7,13 +7,12 @@ import io
 
 NAME = 'news_scraper'
 
-
 setup(
     name=NAME,
     version=0.1,
     description=('This is a schedulable console app which scrapes'
         +' the news feed of a given news source, saves the data, '
-        +'and updates it with the corresponding timestamp',)
+        +'and updates it with the corresponding timestamp'),
     author='Eren Keşküş',
     author_email='eren01@gmail.com',
 
@@ -25,11 +24,14 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3.7',
     ],
-    # TODO
     keywords='scrape article magazine',
     packages=find_packages(exclude=['contrib', 'docs']),
     install_requires=[],
-    scripts=[],
     test_suite='tests',
+    entry_points={
+   'console_scripts': [
+       'run-job=news_scraper.run:run_job',
+   ],
+}
 )
 

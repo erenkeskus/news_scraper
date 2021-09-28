@@ -27,8 +27,9 @@ def parse_articles(document):
         for article in articles: 
             title = article.h2.a.get('title').strip()
             sub_title = article.h2.a.span.text.strip()
-            p = article.find('p')
-            text = p.span.text.strip()
+            section = article.section
+            span = section.find('span')
+            text = span.text.strip()
             articles_map.append({'title':title, 'sub_title':sub_title, 'text':text})
     except Exception as e: 
         logger.exception(e)

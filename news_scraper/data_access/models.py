@@ -17,7 +17,7 @@ class Article(Base):
     text = Column(TEXT, nullable=False)
     insert_datetime = Column(DateTime(), server_default=func.now())
     def __repr__(self): 
-        return f'Article(title={self.title}, sub_title={self.sub_title} text={self.text[:50]})'
+        return f'Article(title={self.title[:50]}, sub_title={self.sub_title[:50]} text={self.text[:50]})'
 
     def __eq__(self, other): 
         if isinstance(other, Article): 
@@ -37,7 +37,7 @@ class ArticleOccurenceLog(Base):
     
     def __repr__(self): 
         if self.article:
-            return f'ArticleOccurenceLog(title={self.article.title}, article_id={self.article.id}, insert_datetime={self.insert_datetime})\n'
+            return f'ArticleOccurenceLog(title={self.article.title[:50]}, article_id={self.article.id}, insert_datetime={self.insert_datetime})\n'
         else:
             return f'ArticleOccurenceLog(article_id={self.article_id}, insert_datetime={self.insert_datetime})\n'
 

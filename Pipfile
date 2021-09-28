@@ -9,6 +9,7 @@ bs4 = "*"
 requests = "*"
 pyyaml = "*"
 munch = "==2.3.2"
+schedule = "==1.1.0"
 
 [dev-packages]
 
